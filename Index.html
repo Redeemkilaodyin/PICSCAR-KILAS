@@ -1,0 +1,3421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PICSCAR KILAS ENTERTAINMENT</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#050509;
+color:#fff;
+line-height:1.5;
+}
+
+a{
+color:inherit;
+text-decoration:none;
+}
+
+button{
+font-family:inherit;
+}
+
+:root{
+--bg:#050509;
+--card:#11111a;
+--card2:#181822;
+--red:#e50914;
+--red2:#ff3945;
+--white:#fff;
+--muted:#aaaab8;
+--border:rgba(255,255,255,.09);
+}
+
+
+/* ================= NAVIGATION ================= */
+
+.navbar{
+position:sticky;
+top:0;
+z-index:5000;
+background:rgba(5,5,9,.96);
+backdrop-filter:blur(12px);
+border-bottom:1px solid var(--border);
+}
+
+.nav-inner{
+max-width:1250px;
+margin:auto;
+padding:15px 20px;
+display:flex;
+align-items:center;
+gap:25px;
+}
+
+.logo{
+font-size:20px;
+font-weight:900;
+white-space:nowrap;
+}
+
+.logo span{
+color:var(--red);
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+gap:18px;
+margin-left:auto;
+}
+
+.nav-links a{
+font-size:14px;
+color:#ddd;
+transition:.2s;
+}
+
+.nav-links a:hover{
+color:var(--red2);
+}
+
+.nav-actions{
+display:flex;
+gap:8px;
+}
+
+.icon-btn,
+.account-btn{
+border:1px solid var(--border);
+background:var(--card);
+color:#fff;
+border-radius:8px;
+padding:9px 12px;
+cursor:pointer;
+}
+
+.account-btn{
+font-size:13px;
+}
+
+.menu-btn{
+display:none;
+background:none;
+border:0;
+color:white;
+font-size:25px;
+cursor:pointer;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+min-height:440px;
+display:flex;
+align-items:center;
+position:relative;
+overflow:hidden;
+background:
+linear-gradient(90deg,#050509 20%,rgba(5,5,9,.78),rgba(5,5,9,.2)),
+linear-gradient(0deg,#050509,transparent);
+}
+
+.hero-content{
+max-width:1250px;
+width:100%;
+margin:auto;
+padding:70px 20px;
+}
+
+.hero h1{
+font-size:clamp(36px,7vw,75px);
+font-weight:900;
+line-height:1;
+max-width:750px;
+}
+
+.hero h1 span{
+color:var(--red);
+}
+
+.hero p{
+max-width:650px;
+color:#c6c6d0;
+margin:20px 0;
+font-size:17px;
+}
+
+.hero-buttons{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.primary-btn,
+.secondary-btn{
+padding:13px 20px;
+border-radius:8px;
+border:none;
+cursor:pointer;
+font-weight:bold;
+}
+
+.primary-btn{
+background:var(--red);
+color:#fff;
+}
+
+.primary-btn:hover{
+background:var(--red2);
+}
+
+.secondary-btn{
+background:#22222c;
+color:#fff;
+border:1px solid var(--border);
+}
+
+
+/* ================= CONTAINER ================= */
+
+.container{
+max-width:1250px;
+margin:auto;
+padding:0 20px;
+}
+
+.section{
+padding:35px 0;
+}
+
+.section-title{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:18px;
+}
+
+.section-title h2{
+font-size:24px;
+}
+
+.section-title span{
+font-size:13px;
+color:var(--muted);
+}
+
+
+/* ================= SEARCH ================= */
+
+.search-area{
+padding:25px 0;
+}
+
+.search-box{
+display:flex;
+gap:10px;
+max-width:850px;
+}
+
+.search-box input{
+flex:1;
+background:var(--card);
+border:1px solid var(--border);
+border-radius:8px;
+padding:14px;
+color:#fff;
+outline:none;
+}
+
+.search-box input:focus{
+border-color:var(--red);
+}
+
+.search-box button{
+background:var(--red);
+color:#fff;
+border:none;
+padding:0 22px;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+}
+
+
+/* ================= CATEGORIES ================= */
+
+.categories{
+display:flex;
+gap:9px;
+overflow-x:auto;
+padding-bottom:8px;
+scrollbar-width:none;
+}
+
+.categories::-webkit-scrollbar{
+display:none;
+}
+
+.category-btn{
+flex-shrink:0;
+padding:9px 15px;
+background:var(--card);
+border:1px solid var(--border);
+color:#ddd;
+border-radius:20px;
+cursor:pointer;
+font-size:13px;
+}
+
+.category-btn.active,
+.category-btn:hover{
+background:var(--red);
+border-color:var(--red);
+color:white;
+}
+
+
+/* ================= MOVIE GRID ================= */
+
+.movie-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
+gap:18px;
+}
+
+.movie-card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:10px;
+overflow:hidden;
+transition:.25s;
+position:relative;
+}
+
+.movie-card:hover{
+transform:translateY(-5px);
+border-color:rgba(229,9,20,.5);
+}
+
+.poster{
+width:100%;
+aspect-ratio:2/3;
+object-fit:cover;
+display:block;
+background:#181822;
+}
+
+.card-body{
+padding:12px;
+}
+
+.card-title{
+font-size:15px;
+font-weight:bold;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+}
+
+.card-meta{
+font-size:12px;
+color:var(--muted);
+margin-top:5px;
+}
+
+.card-buttons{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:6px;
+margin-top:10px;
+}
+
+.card-btn{
+padding:8px 5px;
+border:none;
+border-radius:6px;
+font-size:11px;
+cursor:pointer;
+background:#252532;
+color:#fff;
+}
+
+.card-btn:hover{
+background:var(--red);
+}
+
+.card-btn.full{
+grid-column:1/-1;
+}
+
+.fav-btn{
+position:absolute;
+top:8px;
+right:8px;
+width:32px;
+height:32px;
+border-radius:50%;
+border:1px solid rgba(255,255,255,.2);
+background:rgba(0,0,0,.7);
+color:#fff;
+cursor:pointer;
+z-index:2;
+}
+
+.fav-btn.active{
+color:#ff3945;
+}
+
+
+/* ================= LOADING ================= */
+
+.loading{
+padding:30px;
+text-align:center;
+color:var(--muted);
+}
+
+.spinner{
+width:35px;
+height:35px;
+border:3px solid #333;
+border-top-color:var(--red);
+border-radius:50%;
+margin:auto auto 10px;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+to{
+transform:rotate(360deg);
+}
+}
+
+
+/* ================= LOAD MORE ================= */
+
+.load-more-wrap{
+text-align:center;
+padding:25px 0;
+}
+
+.load-more{
+padding:12px 28px;
+border:1px solid var(--border);
+background:var(--card);
+color:#fff;
+border-radius:8px;
+cursor:pointer;
+}
+
+.load-more:hover{
+background:var(--red);
+}
+
+
+/* ================= AD ================= */
+
+.ad-space{
+min-height:90px;
+background:#0b0b10;
+border:1px dashed #292934;
+border-radius:10px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#555563;
+margin:20px 0;
+font-size:12px;
+}
+
+
+/* ================= NEWS ================= */
+
+.news-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+gap:18px;
+}
+
+.news-card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:10px;
+overflow:hidden;
+}
+
+.news-image{
+width:100%;
+height:150px;
+object-fit:cover;
+background:#181822;
+}
+
+.news-body{
+padding:15px;
+}
+
+.news-category{
+color:var(--red2);
+font-size:11px;
+font-weight:bold;
+text-transform:uppercase;
+}
+
+.news-title{
+font-size:18px;
+font-weight:bold;
+margin:6px 0;
+}
+
+.news-date{
+font-size:11px;
+color:#777;
+margin-bottom:8px;
+}
+
+.news-content{
+font-size:13px;
+color:#aaaab8;
+}
+
+
+/* ================= MODALS ================= */
+
+.modal{
+position:fixed;
+inset:0;
+z-index:9000;
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+background:rgba(0,0,0,.86);
+backdrop-filter:blur(7px);
+}
+
+.modal-box{
+width:100%;
+max-width:750px;
+max-height:90vh;
+overflow:auto;
+background:#11111a;
+border:1px solid var(--border);
+border-radius:15px;
+position:relative;
+padding:25px;
+}
+
+.close{
+position:absolute;
+right:15px;
+top:10px;
+border:none;
+background:none;
+color:#fff;
+font-size:28px;
+cursor:pointer;
+}
+
+.modal-title{
+font-size:28px;
+margin-bottom:8px;
+padding-right:30px;
+}
+
+.modal-meta{
+color:var(--muted);
+font-size:13px;
+margin-bottom:15px;
+}
+
+.modal-description{
+color:#ccc;
+font-size:14px;
+line-height:1.7;
+}
+
+.modal-buttons{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
+.modal-buttons a,
+.modal-buttons button{
+padding:11px 16px;
+border-radius:7px;
+border:none;
+cursor:pointer;
+font-weight:bold;
+}
+
+.watch-btn{
+background:var(--red);
+color:white;
+}
+
+.trailer-btn{
+background:#252532;
+color:#fff;
+}
+
+
+/* ================= AUTH ================= */
+
+.auth-overlay{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.85);
+backdrop-filter:blur(8px);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:99999;
+padding:20px;
+}
+
+.auth-box{
+width:100%;
+max-width:420px;
+background:#11111a;
+border:1px solid var(--border);
+border-radius:18px;
+padding:28px;
+position:relative;
+box-shadow:0 20px 60px rgba(0,0,0,.7);
+}
+
+.auth-box h2{
+margin-bottom:7px;
+}
+
+.auth-subtitle{
+color:var(--muted);
+font-size:14px;
+margin-bottom:20px;
+}
+
+.auth-box input{
+width:100%;
+padding:14px;
+margin-bottom:12px;
+background:#181822;
+border:1px solid var(--border);
+border-radius:8px;
+color:#fff;
+outline:none;
+}
+
+.auth-box input:focus{
+border-color:var(--red);
+}
+
+.auth-main-btn{
+width:100%;
+padding:14px;
+border:none;
+border-radius:8px;
+background:var(--red);
+color:#fff;
+font-weight:bold;
+cursor:pointer;
+}
+
+.auth-switch{
+text-align:center;
+color:var(--muted);
+font-size:13px;
+margin-top:17px;
+}
+
+.auth-switch button{
+background:none;
+border:none;
+color:var(--red2);
+cursor:pointer;
+font-weight:bold;
+}
+
+.auth-close{
+position:absolute;
+right:14px;
+top:10px;
+background:none;
+border:none;
+color:#fff;
+font-size:27px;
+cursor:pointer;
+}
+
+.auth-error{
+display:none;
+color:#ff6670;
+font-size:13px;
+margin-bottom:10px;
+}
+
+.auth-success{
+display:none;
+color:#44e98a;
+font-size:13px;
+margin-bottom:10px;
+}
+
+
+/* ================= ACCOUNT PANEL ================= */
+
+.account-panel{
+display:none;
+position:fixed;
+right:15px;
+top:75px;
+width:300px;
+background:#11111a;
+border:1px solid var(--border);
+border-radius:14px;
+padding:20px;
+z-index:9998;
+box-shadow:0 15px 50px rgba(0,0,0,.7);
+}
+
+.account-panel h3{
+margin-bottom:3px;
+}
+
+.account-panel p{
+font-size:13px;
+color:var(--muted);
+margin-bottom:15px;
+}
+
+.account-option{
+width:100%;
+padding:11px;
+margin-top:7px;
+background:#181822;
+border:1px solid var(--border);
+border-radius:7px;
+color:#fff;
+text-align:left;
+cursor:pointer;
+}
+
+.account-option:hover{
+background:#252532;
+}
+
+.logout{
+background:var(--red);
+}
+
+
+/* ================= TRAILER ================= */
+
+.trailer-box{
+width:100%;
+max-width:900px;
+background:#000;
+border-radius:10px;
+overflow:hidden;
+position:relative;
+}
+
+.trailer-box iframe{
+width:100%;
+height:500px;
+border:none;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+border-top:1px solid var(--border);
+margin-top:50px;
+padding:35px 20px;
+text-align:center;
+color:#777;
+font-size:12px;
+}
+
+footer strong{
+color:#fff;
+}
+
+.footer-links{
+display:flex;
+justify-content:center;
+gap:18px;
+margin:15px 0;
+flex-wrap:wrap;
+}
+
+.footer-links a:hover{
+color:var(--red2);
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:800px){
+
+.nav-inner{
+padding:12px 15px;
+}
+
+.menu-btn{
+display:block;
+margin-left:auto;
+}
+
+.nav-links{
+display:none;
+position:absolute;
+top:60px;
+left:0;
+right:0;
+background:#08080d;
+padding:15px;
+flex-direction:column;
+align-items:flex-start;
+border-bottom:1px solid var(--border);
+}
+
+.nav-links.open{
+display:flex;
+}
+
+.nav-actions{
+display:none;
+}
+
+.hero{
+min-height:390px;
+}
+
+.movie-grid{
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+
+.card-body{
+padding:9px;
+}
+
+.card-buttons{
+grid-template-columns:1fr;
+}
+
+.card-btn.full{
+grid-column:auto;
+}
+
+.trailer-box iframe{
+height:240px;
+}
+
+}
+
+@media(min-width:801px){
+
+.mobile-account{
+display:none;
+}
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+NAVIGATION
+===================================================== -->
+
+<nav class="navbar">
+
+<div class="nav-inner">
+
+<div class="logo">
+PICSCAR <span>KILAS</span>
+</div>
+
+<button class="menu-btn" onclick="toggleMenu()">
+☰
+</button>
+
+<div class="nav-links" id="navLinks">
+
+<a href="#home">Home</a>
+
+<a href="#movies">Movies</a>
+
+<a href="#series">Series</a>
+
+<a href="#categories">Categories</a>
+
+<a href="#news">News</a>
+
+<a href="https://www.justwatch.com/ug/"
+target="_blank"
+rel="noopener">
+JustWatch
+</a>
+
+<a href="admin.html">
+Admin Access
+</a>
+
+</div>
+
+<div class="nav-actions">
+
+<button class="icon-btn"
+onclick="focusSearch()">
+🔎
+</button>
+
+<button class="account-btn"
+onclick="openAccount()">
+
+👤 <span id="accountText">Account</span>
+
+</button>
+
+</div>
+
+</div>
+
+</nav>
+
+
+
+<!-- =====================================================
+HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<h1>
+PICSCAR <span>KILAS</span>
+</h1>
+
+<p>
+ENTERTAINMENT COMPANY LIMITED
+</p>
+
+<p>
+Discover movies and TV series from around the world,
+powered by The Movie Database.
+</p>
+
+<div class="hero-buttons">
+
+<button class="primary-btn"
+onclick="focusSearch()">
+DISCOVER MOVIES
+</button>
+
+<a class="secondary-btn"
+href="https://www.justwatch.com/ug/"
+target="_blank"
+rel="noopener">
+WHERE TO WATCH
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+MAIN
+===================================================== -->
+
+<main class="container">
+
+
+<!-- AD -->
+
+<div class="ad-space">
+ADVERTISEMENT SPACE
+</div>
+
+
+
+<!-- SEARCH -->
+
+<section class="search-area" id="searchArea">
+
+<div class="section-title">
+
+<h2>Search</h2>
+
+<span>Find movies & series</span>
+
+</div>
+
+<div class="search-box">
+
+<input
+id="searchInput"
+type="text"
+placeholder="Search movies, series, actors..."
+onkeydown="if(event.key==='Enter') searchTMDB()"
+>
+
+<button onclick="searchTMDB()">
+SEARCH
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+CATEGORIES
+===================================================== -->
+
+<section class="section" id="categories">
+
+<div class="section-title">
+
+<h2>Categories</h2>
+
+<span>Explore</span>
+
+</div>
+
+
+<div class="categories">
+
+<button class="category-btn active"
+data-category="popular"
+onclick="loadCategory('popular',this)">
+Popular
+</button>
+
+<button class="category-btn"
+data-category="action"
+onclick="loadCategory('action',this)">
+Action
+</button>
+
+<button class="category-btn"
+data-category="adventure"
+onclick="loadCategory('adventure',this)">
+Adventure
+</button>
+
+<button class="category-btn"
+data-category="animation"
+onclick="loadCategory('animation',this)">
+Animation
+</button>
+
+<button class="category-btn"
+data-category="comedy"
+onclick="loadCategory('comedy',this)">
+Comedy
+</button>
+
+<button class="category-btn"
+data-category="crime"
+onclick="loadCategory('crime',this)">
+Crime
+</button>
+
+<button class="category-btn"
+data-category="drama"
+onclick="loadCategory('drama',this)">
+Drama
+</button>
+
+<button class="category-btn"
+data-category="fantasy"
+onclick="loadCategory('fantasy',this)">
+Fantasy
+</button>
+
+<button class="category-btn"
+data-category="horror"
+onclick="loadCategory('horror',this)">
+Horror
+</button>
+
+<button class="category-btn"
+data-category="romance"
+onclick="loadCategory('romance',this)">
+Romance
+</button>
+
+<button class="category-btn"
+data-category="scifi"
+onclick="loadCategory('scifi',this)">
+Sci-Fi
+</button>
+
+<button class="category-btn"
+data-category="highschool"
+onclick="loadCategory('highschool',this)">
+High School
+</button>
+
+<button class="category-btn"
+data-category="african"
+onclick="loadCategory('african',this)">
+African Cinema
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+MOVIES
+===================================================== -->
+
+<section class="section" id="movies">
+
+<div class="section-title">
+
+<h2 id="movieSectionTitle">
+Popular Movies
+</h2>
+
+<span id="resultCount"></span>
+
+</div>
+
+<div id="movieGrid"
+class="movie-grid">
+
+<div class="loading">
+
+<div class="spinner"></div>
+
+Loading movies...
+
+</div>
+
+</div>
+
+<div class="load-more-wrap">
+
+<button
+class="load-more"
+id="loadMoreBtn"
+onclick="loadMore()">
+
+LOAD MORE
+
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+SERIES
+===================================================== -->
+
+<section class="section" id="series">
+
+<div class="section-title">
+
+<h2>Popular Series</h2>
+
+<span>TV Shows</span>
+
+</div>
+
+<div id="seriesGrid"
+class="movie-grid">
+
+<div class="loading">
+
+<div class="spinner"></div>
+
+Loading series...
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+NEWS
+===================================================== -->
+
+<section class="section" id="news">
+
+<div class="section-title">
+
+<h2>PICSCAR KILAS News</h2>
+
+<span>Latest updates</span>
+
+</div>
+
+<div id="newsGrid"
+class="news-grid">
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+TRAILERS
+===================================================== -->
+
+<section class="section">
+
+<div class="section-title">
+
+<h2>Featured Trailers</h2>
+
+</div>
+
+<div class="movie-grid">
+
+<div class="movie-card">
+
+<div class="card-body">
+
+<div class="card-title">
+PICSCAR KILAS Trailer
+</div>
+
+<p class="card-meta">
+Featured entertainment
+</p>
+
+<button class="card-btn full"
+onclick="openYouTubeSearch('movie trailers 2026')">
+WATCH TRAILER
+</button>
+
+</div>
+
+</div>
+
+
+<div class="movie-card">
+
+<div class="card-body">
+
+<div class="card-title">
+Latest Movie Trailers
+</div>
+
+<p class="card-meta">
+Discover upcoming releases
+</p>
+
+<button class="card-btn full"
+onclick="openYouTubeSearch('latest movie trailers')">
+WATCH TRAILERS
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+DETAIL MODAL
+===================================================== -->
+
+<div class="modal" id="detailsModal">
+
+<div class="modal-box">
+
+<button class="close"
+onclick="closeModal('detailsModal')">
+×
+</button>
+
+<h2 class="modal-title"
+id="modalTitle">
+Movie
+</h2>
+
+<div class="modal-meta"
+id="modalMeta">
+</div>
+
+<p class="modal-description"
+id="modalDescription">
+</p>
+
+<div class="modal-buttons">
+
+<button class="trailer-btn"
+id="modalTrailerBtn">
+WATCH TRAILER
+</button>
+
+<a
+id="justWatchLink"
+class="watch-btn"
+target="_blank"
+rel="noopener">
+WHERE TO WATCH
+</a>
+
+<button
+class="trailer-btn"
+id="modalFavoriteBtn">
+❤️ FAVORITE
+</button>
+
+<button
+class="trailer-btn"
+id="modalWatchlistBtn">
+＋ WATCHLIST
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+TRAILER MODAL
+===================================================== -->
+
+<div class="modal" id="trailerModal">
+
+<div class="trailer-box">
+
+<button class="close"
+onclick="closeModal('trailerModal')">
+×
+</button>
+
+<iframe
+id="trailerFrame"
+allowfullscreen>
+</iframe>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+AUTH SYSTEM
+===================================================== -->
+
+<div class="auth-overlay" id="authOverlay">
+
+<div class="auth-box">
+
+<button
+class="auth-close"
+onclick="closeAuth()">
+×
+</button>
+
+
+<!-- SIGN IN -->
+
+<div id="signinForm">
+
+<h2>Welcome Back</h2>
+
+<p class="auth-subtitle">
+Sign in to your PICSCAR KILAS account.
+</p>
+
+<div
+class="auth-error"
+id="signinError">
+</div>
+
+<input
+type="email"
+id="signinEmail"
+placeholder="Email address"
+autocomplete="email"
+>
+
+<input
+type="password"
+id="signinPassword"
+placeholder="Password"
+autocomplete="current-password"
+>
+
+<button
+class="auth-main-btn"
+onclick="signIn()">
+SIGN IN
+</button>
+
+<div class="auth-switch">
+
+Don't have an account?
+
+<button onclick="openAuth('signup')">
+Create Account
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- SIGN UP -->
+
+<div id="signupForm"
+style="display:none">
+
+<h2>Create Account</h2>
+
+<p class="auth-subtitle">
+Join PICSCAR KILAS ENTERTAINMENT.
+</p>
+
+<div
+class="auth-error"
+id="signupError">
+</div>
+
+<div
+class="auth-success"
+id="signupSuccess">
+</div>
+
+<input
+type="text"
+id="signupName"
+placeholder="Full name"
+autocomplete="name"
+>
+
+<input
+type="email"
+id="signupEmail"
+placeholder="Email address"
+autocomplete="email"
+>
+
+<input
+type="password"
+id="signupPassword"
+placeholder="Create password"
+autocomplete="new-password"
+>
+
+<input
+type="password"
+id="signupConfirm"
+placeholder="Confirm password"
+autocomplete="new-password"
+>
+
+<button
+class="auth-main-btn"
+onclick="signUp()">
+CREATE ACCOUNT
+</button>
+
+<div class="auth-switch">
+
+Already have an account?
+
+<button onclick="openAuth('signin')">
+Sign In
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+ACCOUNT PANEL
+===================================================== -->
+
+<div class="account-panel"
+id="accountPanel">
+
+<h3 id="accountName">
+Account
+</h3>
+
+<p id="accountEmail">
+</p>
+
+<button
+class="account-option"
+onclick="showFavorites()">
+❤️ My Favorites
+</button>
+
+<button
+class="account-option"
+onclick="showWatchlist()">
+🎬 My Watchlist
+</button>
+
+<button
+class="account-option"
+onclick="showProfile()">
+👤 My Profile
+</button>
+
+<button
+class="account-option logout"
+onclick="signOut()">
+SIGN OUT
+</button>
+
+</div>
+
+
+
+<!-- =====================================================
+FOOTER
+===================================================== -->
+
+<footer>
+
+<div>
+<strong>PICSCAR KILAS ENTERTAINMENT COMPANY LIMITED</strong>
+</div>
+
+<div class="footer-links">
+
+<a href="#home">Home</a>
+
+<a href="#movies">Movies</a>
+
+<a href="#series">Series</a>
+
+<a href="#news">News</a>
+
+<a
+href="https://www.justwatch.com/ug/"
+target="_blank"
+rel="noopener">
+JustWatch
+</a>
+
+<a href="admin.html">
+Admin Access
+</a>
+
+</div>
+
+<p>
+Movie and TV information and images are provided
+through The Movie Database (TMDB).
+</p>
+
+<p>
+This product uses the TMDB API but is not endorsed
+or certified by TMDB.
+</p>
+
+</footer>
+
+
+
+<script>
+
+/* =====================================================
+TMDB CONFIGURATION
+===================================================== */
+
+const TMDB_TOKEN =
+"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2ZTQ0N2QyZTlhNDM5NDQzNmQxNTZmMGYxMGRjYThiZiIsIm5iZiI6MTc5MTA0MDI1MC44MDgsInN1YiI6IjZhYzExYWZhYWViNWVhMDllOWQxZmYzNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Qr4-bjtzDwu1EEgwCHpFSntfNnWFjymhROSgGPrfmjM";
+
+const API_BASE =
+"https://api.themoviedb.org/3";
+
+const IMAGE_BASE =
+"https://image.tmdb.org/t/p/w500";
+
+
+/* =====================================================
+APP STATE
+===================================================== */
+
+let currentPage = 1;
+
+let currentCategory = "popular";
+
+let currentMode = "movie";
+
+let currentSearch = "";
+
+let currentItem = null;
+
+let currentUser = null;
+
+
+/* =====================================================
+TMDB REQUEST
+===================================================== */
+
+async function tmdbFetch(endpoint){
+
+try{
+
+const response =
+await fetch(API_BASE + endpoint,{
+headers:{
+Authorization:
+"Bearer " + TMDB_TOKEN,
+"Content-Type":
+"application/json;charset=utf-8"
+}
+});
+
+if(!response.ok){
+
+throw new Error(
+"TMDB request failed: " +
+response.status
+);
+
+}
+
+return await response.json();
+
+}catch(error){
+
+console.error(error);
+
+throw error;
+
+}
+
+}
+
+
+/* =====================================================
+IMAGE
+===================================================== */
+
+function posterURL(path){
+
+if(!path){
+
+return "https://via.placeholder.com/500x750/11111a/ffffff?text=No+Poster";
+
+}
+
+return IMAGE_BASE + path;
+
+}
+
+
+/* =====================================================
+JUSTWATCH
+===================================================== */
+
+function getJustWatchURL(title){
+
+return "https://www.justwatch.com/ug/search?q=" +
+encodeURIComponent(title);
+
+}
+
+
+/* =====================================================
+MENU
+===================================================== */
+
+function toggleMenu(){
+
+document
+.getElementById("navLinks")
+.classList.toggle("open");
+
+}
+
+
+/* =====================================================
+SEARCH FOCUS
+===================================================== */
+
+function focusSearch(){
+
+document
+.getElementById("searchArea")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+setTimeout(()=>{
+
+document
+.getElementById("searchInput")
+.focus();
+
+},500);
+
+}
+
+
+/* =====================================================
+CATEGORY CONFIG
+===================================================== */
+
+const categories = {
+
+popular:
+"/movie/popular",
+
+action:
+"/discover/movie?with_genres=28&sort_by=popularity.desc",
+
+adventure:
+"/discover/movie?with_genres=12&sort_by=popularity.desc",
+
+animation:
+"/discover/movie?with_genres=16&sort_by=popularity.desc",
+
+comedy:
+"/discover/movie?with_genres=35&sort_by=popularity.desc",
+
+crime:
+"/discover/movie?with_genres=80&sort_by=popularity.desc",
+
+drama:
+"/discover/movie?with_genres=18&sort_by=popularity.desc",
+
+fantasy:
+"/discover/movie?with_genres=14&sort_by=popularity.desc",
+
+horror:
+"/discover/movie?with_genres=27&sort_by=popularity.desc",
+
+romance:
+"/discover/movie?with_genres=10749&sort_by=popularity.desc",
+
+scifi:
+"/discover/movie?with_genres=878&sort_by=popularity.desc",
+
+highschool:
+"/discover/movie?with_keywords=6057&sort_by=popularity.desc",
+
+african:
+"/discover/movie?with_origin_country=ZA,NG,GH,KE,UG&sort_by=popularity.desc"
+
+};
+
+
+/* =====================================================
+LOAD CATEGORY
+===================================================== */
+
+async function loadCategory(
+category,
+button
+){
+
+currentCategory = category;
+
+currentMode = "movie";
+
+currentSearch = "";
+
+currentPage = 1;
+
+
+document
+.querySelectorAll(".category-btn")
+.forEach(btn=>{
+btn.classList.remove("active");
+});
+
+
+if(button){
+
+button.classList.add("active");
+
+}
+
+
+const names = {
+
+popular:"Popular Movies",
+
+action:"Action Movies",
+
+adventure:"Adventure Movies",
+
+animation:"Animation Movies",
+
+comedy:"Comedy Movies",
+
+crime:"Crime Movies",
+
+drama:"Drama Movies",
+
+fantasy:"Fantasy Movies",
+
+horror:"Horror Movies",
+
+romance:"Romance Movies",
+
+scifi:"Sci-Fi Movies",
+
+highschool:"High School Movies",
+
+african:"African Cinema"
+
+};
+
+
+document
+.getElementById("movieSectionTitle")
+.textContent =
+names[category] || "Movies";
+
+
+document
+.getElementById("movieGrid")
+.innerHTML =
+loadingHTML();
+
+
+try{
+
+const data =
+await tmdbFetch(
+categories[category] +
+"&page=" +
+currentPage
+);
+
+
+renderMovies(data.results || []);
+
+document
+.getElementById("resultCount")
+textContent =
+(data.total_results || 0) +
+" results";
+
+}catch(error){
+
+showTMDBError();
+
+}
+
+}
+
+
+/* =====================================================
+LOADING HTML
+===================================================== */
+
+function loadingHTML(){
+
+return `
+<div class="loading">
+
+<div class="spinner"></div>
+
+Loading...
+
+</div>
+`;
+
+}
+
+
+/* =====================================================
+CREATE MOVIE CARD
+===================================================== */
+
+function createCard(item){
+
+const isTV =
+item.media_type === "tv";
+
+const title =
+item.title ||
+item.name ||
+"Untitled";
+
+const date =
+item.release_date ||
+item.first_air_date ||
+"";
+
+const year =
+date ?
+date.substring(0,4) :
+"";
+
+
+const favorite =
+isFavorite(item.id);
+
+
+return `
+
+<div class="movie-card">
+
+<button
+class="fav-btn ${favorite ? "active" : ""}"
+onclick="toggleFavoriteFromCard(event,${item.id},'${isTV ? "tv" : "movie"}')">
+
+♥
+
+</button>
+
+
+<img
+class="poster"
+src="${posterURL(item.poster_path)}"
+alt="${escapeHTML(title)}"
+loading="lazy"
+onclick="openDetails(${item.id},'${isTV ? "tv" : "movie"}')"
+style="cursor:pointer"
+>
+
+
+<div class="card-body">
+
+<div class="card-title"
+title="${escapeHTML(title)}">
+
+${escapeHTML(title)}
+
+</div>
+
+<div class="card-meta">
+
+${isTV ? "TV Series" : "Movie"}
+${year ? " • " + year : ""}
+${item.vote_average ? " • ⭐ " + item.vote_average.toFixed(1) : ""}
+
+</div>
+
+
+<div class="card-buttons">
+
+<button
+class="card-btn"
+onclick="openDetails(${item.id},'${isTV ? "tv" : "movie"}')">
+
+INFO
+
+</button>
+
+
+<button
+class="card-btn"
+onclick="openTrailer(${item.id},'${isTV ? "tv" : "movie"}','${escapeAttribute(title)}')">
+
+TRAILER
+
+</button>
+
+
+<button
+class="card-btn full"
+onclick="openJustWatch('${escapeAttribute(title)}')">
+
+WHERE TO WATCH
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+CREATE TV CARD
+===================================================== */
+
+function createTVCard(item){
+
+return createCard({
+...item,
+media_type:"tv"
+});
+
+}
+
+
+/* =====================================================
+RENDER MOVIES
+===================================================== */
+
+function renderMovies(items){
+
+const grid =
+document.getElementById("movieGrid");
+
+
+if(!items.length){
+
+grid.innerHTML =
+`
+<div class="loading">
+No results found.
+</div>
+`;
+
+return;
+
+}
+
+
+grid.innerHTML =
+items.map(createCard).join("");
+
+}
+
+
+/* =====================================================
+LOAD MORE
+===================================================== */
+
+async function loadMore(){
+
+currentPage++;
+
+const button =
+document.getElementById("loadMoreBtn");
+
+button.textContent =
+"LOADING...";
+
+try{
+
+let endpoint;
+
+if(currentSearch){
+
+endpoint =
+"/search/multi?query=" +
+encodeURIComponent(currentSearch) +
+"&page=" +
+currentPage;
+
+}else{
+
+endpoint =
+categories[currentCategory] +
+"&page=" +
+currentPage;
+
+}
+
+
+const data =
+await tmdbFetch(endpoint);
+
+
+const valid =
+(data.results || []).filter(item=>{
+
+return item.media_type !== "person";
+
+});
+
+
+const grid =
+document.getElementById("movieGrid");
+
+
+grid.insertAdjacentHTML(
+"beforeend",
+valid.map(createCard).join("")
+);
+
+
+button.textContent =
+"LOAD MORE";
+
+
+}catch(error){
+
+console.error(error);
+
+button.textContent =
+"LOAD MORE";
+
+}
+
+}
+
+
+/* =====================================================
+SEARCH
+===================================================== */
+
+async function searchTMDB(){
+
+const input =
+document.getElementById("searchInput");
+
+const query =
+input.value.trim();
+
+
+if(!query){
+
+return;
+
+}
+
+
+currentSearch = query;
+
+currentPage = 1;
+
+currentMode = "search";
+
+
+document
+.getElementById("movieSectionTitle")
+.textContent =
+"Search Results";
+
+
+document
+.getElementById("movieGrid")
+.innerHTML =
+loadingHTML();
+
+
+try{
+
+const data =
+await tmdbFetch(
+"/search/multi?query=" +
+encodeURIComponent(query) +
+"&page=1"
+);
+
+
+const results =
+(data.results || []).filter(item =>
+item.media_type === "movie" ||
+item.media_type === "tv"
+);
+
+
+renderMovies(results);
+
+
+document
+.getElementById("resultCount")
+textContent =
+(data.total_results || 0) +
+" results";
+
+document
+.getElementById("movies")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+
+}catch(error){
+
+showTMDBError();
+
+}
+
+}
+
+
+/* =====================================================
+LOAD POPULAR SERIES
+===================================================== */
+
+async function loadSeries(){
+
+const grid =
+document.getElementById("seriesGrid");
+
+grid.innerHTML =
+loadingHTML();
+
+
+try{
+
+const data =
+await tmdbFetch(
+"/tv/popular?language=en-US&page=1"
+);
+
+
+grid.innerHTML =
+(data.results || [])
+.map(item=>
+createTVCard(item)
+)
+.join("");
+
+
+}catch(error){
+
+grid.innerHTML =
+`
+<div class="loading">
+Unable to load series.
+</div>
+`;
+
+}
+
+}
+
+
+/* =====================================================
+DETAILS
+===================================================== */
+
+async function openDetails(
+id,
+type="movie"
+){
+
+const modal =
+document.getElementById("detailsModal");
+
+modal.style.display =
+"flex";
+
+
+document.getElementById("modalTitle")
+.textContent =
+"Loading...";
+
+
+document.getElementById("modalMeta")
+.textContent =
+"";
+
+
+document.getElementById("modalDescription")
+.textContent =
+"";
+
+
+try{
+
+const item =
+await tmdbFetch(
+"/" +
+type +
+"/" +
+id +
+"?language=en-US"
+);
+
+
+currentItem = {
+...item,
+media_type:type
+};
+
+
+const title =
+item.title ||
+item.name ||
+"Untitled";
+
+
+const date =
+item.release_date ||
+item.first_air_date ||
+"";
+
+
+const genres =
+(item.genres || [])
+.map(g=>g.name)
+.join(", ");
+
+
+document.getElementById("modalTitle")
+.textContent =
+title;
+
+
+document.getElementById("modalMeta")
+.textContent =
+[
+type === "tv" ? "TV Series" : "Movie",
+date.substring(0,4),
+genres,
+item.vote_average ?
+"⭐ " + item.vote_average.toFixed(1)
+: ""
+]
+.filter(Boolean)
+.join(" • ");
+
+
+document.getElementById("modalDescription")
+.textContent =
+item.overview ||
+"No description available.";
+
+
+const watch =
+document.getElementById("justWatchLink");
+
+watch.href =
+getJustWatchURL(title);
+
+
+document.getElementById("modalTrailerBtn")
+onclick =
+()=>{
+openTrailer(
+id,
+type,
+title
+);
+};
+
+
+document.getElementById("modalFavoriteBtn")
+onclick =
+()=>{
+toggleFavorite(currentItem);
+};
+
+
+document.getElementById("modalWatchlistBtn")
+onclick =
+()=>{
+toggleWatchlist(currentItem);
+};
+
+
+}catch(error){
+
+document.getElementById("modalTitle")
+.textContent =
+"Unable to load details.";
+
+}
+
+}
+
+
+/* =====================================================
+CLOSE MODAL
+===================================================== */
+
+function closeModal(id){
+
+document
+.getElementById(id)
+.style.display =
+"none";
+
+
+if(id === "trailerModal"){
+
+document
+.getElementById("trailerFrame")
+.src = "";
+
+}
+
+}
+
+
+/* =====================================================
+TRAILER
+===================================================== */
+
+async function openTrailer(
+id,
+type,
+title
+){
+
+try{
+
+const data =
+await tmdbFetch(
+"/" +
+type +
+"/" +
+id +
+"/videos?language=en-US"
+);
+
+
+const videos =
+data.results || [];
+
+
+const trailer =
+videos.find(v =>
+v.site === "YouTube" &&
+v.type === "Trailer"
+) ||
+videos.find(v =>
+v.site === "YouTube" &&
+v.type === "Teaser"
+);
+
+
+if(trailer){
+
+document
+.getElementById("trailerFrame")
+.src =
+"https://www.youtube.com/embed/" +
+trailer.key;
+
+document
+.getElementById("trailerModal")
+.style.display =
+"flex";
+
+}else{
+
+openYouTubeSearch(
+title + " official trailer"
+);
+
+}
+
+}catch(error){
+
+openYouTubeSearch(
+title + " official trailer"
+);
+
+}
+
+}
+
+
+/* =====================================================
+YOUTUBE SEARCH
+===================================================== */
+
+function openYouTubeSearch(query){
+
+window.open(
+"https://www.youtube.com/results?search_query=" +
+encodeURIComponent(query),
+"_blank"
+);
+
+}
+
+
+/* =====================================================
+JUSTWATCH
+===================================================== */
+
+function openJustWatch(title){
+
+window.open(
+getJustWatchURL(title),
+"_blank"
+);
+
+}
+
+
+/* =====================================================
+FAVORITES
+===================================================== */
+
+function getFavorites(){
+
+return JSON.parse(
+localStorage.getItem(
+"picscarKilasFavorites"
+) || "[]"
+);
+
+}
+
+
+function isFavorite(id){
+
+return getFavorites()
+.some(item=>item.id===id);
+
+}
+
+
+function toggleFavorite(item){
+
+if(!currentUser){
+
+openAuth("signin");
+
+return;
+
+}
+
+
+const favorites =
+getFavorites();
+
+
+const index =
+favorites.findIndex(
+x=>x.id===item.id &&
+x.media_type===item.media_type
+);
+
+
+if(index >= 0){
+
+favorites.splice(index,1);
+
+}else{
+
+favorites.push({
+id:item.id,
+media_type:item.media_type,
+title:item.title || item.name,
+poster_path:item.poster_path
+});
+
+}
+
+
+localStorage.setItem(
+"picscarKilasFavorites",
+JSON.stringify(favorites)
+);
+
+
+alert(
+index >= 0
+? "Removed from favorites."
+: "Added to favorites."
+);
+
+}
+
+
+function toggleFavoriteFromCard(
+event,
+id,
+type
+){
+
+event.stopPropagation();
+
+
+const item = {
+
+id:id,
+
+media_type:type,
+
+title:"",
+
+name:"",
+
+poster_path:null
+
+};
+
+
+toggleFavorite(item);
+
+}
+
+
+/* =====================================================
+WATCHLIST
+===================================================== */
+
+function getWatchlist(){
+
+return JSON.parse(
+localStorage.getItem(
+"picscarKilasWatchlist"
+) || "[]"
+);
+
+}
+
+
+function toggleWatchlist(item){
+
+if(!currentUser){
+
+openAuth("signin");
+
+return;
+
+}
+
+
+const list =
+getWatchlist();
+
+
+const index =
+list.findIndex(
+x=>x.id===item.id &&
+x.media_type===item.media_type
+);
+
+
+if(index >= 0){
+
+list.splice(index,1);
+
+alert(
+"Removed from watchlist."
+);
+
+}else{
+
+list.push({
+
+id:item.id,
+
+media_type:item.media_type,
+
+title:item.title || item.name,
+
+poster_path:item.poster_path
+
+});
+
+alert(
+"Added to watchlist."
+);
+
+}
+
+
+localStorage.setItem(
+"picscarKilasWatchlist",
+JSON.stringify(list)
+);
+
+}
+
+
+/* =====================================================
+ACCOUNT SYSTEM
+===================================================== */
+
+function getUsers(){
+
+return JSON.parse(
+localStorage.getItem(
+"picscarKilasUsers"
+) || "[]"
+);
+
+}
+
+
+function saveUsers(users){
+
+localStorage.setItem(
+"picscarKilasUsers",
+JSON.stringify(users)
+);
+
+}
+
+
+function openAuth(type){
+
+document
+.getElementById("authOverlay")
+.style.display =
+"flex";
+
+
+document
+.getElementById("signinForm")
+.style.display =
+type === "signin"
+? "block"
+: "none";
+
+
+document
+.getElementById("signupForm")
+.style.display =
+type === "signup"
+? "block"
+: "none";
+
+
+clearAuthMessages();
+
+}
+
+
+function closeAuth(){
+
+document
+.getElementById("authOverlay")
+.style.display =
+"none";
+
+}
+
+
+function clearAuthMessages(){
+
+document
+.getElementById("signinError")
+.style.display =
+"none";
+
+
+document
+.getElementById("signupError")
+.style.display =
+"none";
+
+
+document
+.getElementById("signupSuccess")
+.style.display =
+"none";
+
+}
+
+
+/* =====================================================
+SIGN UP
+===================================================== */
+
+function signUp(){
+
+const name =
+document
+.getElementById("signupName")
+.value
+.trim();
+
+
+const email =
+document
+.getElementById("signupEmail")
+.value
+.trim()
+.toLowerCase();
+
+
+const password =
+document
+.getElementById("signupPassword")
+.value;
+
+
+const confirm =
+document
+.getElementById("signupConfirm")
+.value;
+
+
+const error =
+document.getElementById(
+"signupError"
+);
+
+
+const success =
+document.getElementById(
+"signupSuccess"
+);
+
+
+error.style.display =
+"none";
+
+success.style.display =
+"none";
+
+
+if(!name ||
+!email ||
+!password ||
+!confirm){
+
+error.textContent =
+"Please fill in all fields.";
+
+error.style.display =
+"block";
+
+return;
+
+}
+
+
+if(!email.includes("@")){
+
+error.textContent =
+"Please enter a valid email.";
+
+error.style.display =
+"block";
+
+return;
+
+}
+
+
+if(password.length < 6){
+
+error.textContent =
+"Password must contain at least 6 characters.";
+
+error.style.display =
+"block";
+
+return;
+
+}
+
+
+if(password !== confirm){
+
+error.textContent =
+"Passwords do not match.";
+
+error.style.display =
+"block";
+
+return;
+
+}
+
+
+const users =
+getUsers();
+
+
+if(
+users.some(
+user=>user.email===email
+)
+){
+
+error.textContent =
+"An account with this email already exists.";
+
+error.style.display =
+"block";
+
+return;
+
+}
+
+
+const newUser = {
+
+id:Date.now(),
+
+name:name,
+
+email:email,
+
+password:password,
+
+joined:new Date().toISOString()
+
+};
+
+
+users.push(newUser);
+
+saveUsers(users);
+
+
+success.textContent =
+"Account created successfully.";
+
+success.style.display =
+"block";
+
+
+setTimeout(()=>{
+
+openAuth("signin");
+
+document
+.getElementById("signinEmail")
+.value =
+email;
+
+},1000);
+
+}
+
+
+/* =====================================================
+SIGN IN
+===================================================== */
+
+function signIn(){
+
+const email =
+document
+.getElementById("signinEmail")
+.value
+.trim()
+.toLowerCase();
+
+
+const password =
+document
+.getElementById("signinPassword")
+.value;
+
+
+const error =
+document.getElementById(
+"signinError"
+);
+
+
+const users =
+getUsers();
+
+
+const user =
+users.find(
+u=>
+u.email===email &&
+u.password===password
+);
+
+
+if(!user){
+
+error.textContent =
+"Incorrect email or password.";
+
+error.style.display =
+"block";
+
+return;
+
+}
+
+
+currentUser = user;
+
+
+localStorage.setItem(
+"picscarKilasCurrentUser",
+JSON.stringify(user)
+);
+
+
+closeAuth();
+
+updateAccountUI();
+
+}
+
+
+/* =====================================================
+SIGN OUT
+===================================================== */
+
+function signOut(){
+
+currentUser = null;
+
+localStorage.removeItem(
+"picscarKilasCurrentUser"
+);
+
+
+document
+.getElementById("accountPanel")
+.style.display =
+"none";
+
+
+updateAccountUI();
+
+}
+
+
+/* =====================================================
+ACCOUNT
+===================================================== */
+
+function openAccount(){
+
+if(!currentUser){
+
+openAuth("signin");
+
+return;
+
+}
+
+
+const panel =
+document.getElementById(
+"accountPanel"
+);
+
+
+panel.style.display =
+panel.style.display === "block"
+? "none"
+: "block";
+
+
+document
+.getElementById("accountName")
+.textContent =
+currentUser.name;
+
+
+document
+.getElementById("accountEmail")
+.textContent =
+currentUser.email;
+
+}
+
+
+/* =====================================================
+UPDATE ACCOUNT BUTTON
+===================================================== */
+
+function updateAccountUI(){
+
+const text =
+document.getElementById(
+"accountText"
+);
+
+
+if(!text) return;
+
+
+if(currentUser){
+
+text.textContent =
+currentUser.name
+.split(" ")[0];
+
+}else{
+
+text.textContent =
+"Account";
+
+}
+
+}
+
+
+/* =====================================================
+LOAD USER
+===================================================== */
+
+function loadCurrentUser(){
+
+const saved =
+localStorage.getItem(
+"picscarKilasCurrentUser"
+);
+
+
+if(saved){
+
+try{
+
+currentUser =
+JSON.parse(saved);
+
+}catch(error){
+
+currentUser = null;
+
+}
+
+}
+
+
+updateAccountUI();
+
+}
+
+
+/* =====================================================
+PROFILE
+===================================================== */
+
+function showProfile(){
+
+if(!currentUser)
+return;
+
+
+alert(
+"PICSCAR KILAS ACCOUNT\n\n" +
+"Name: " +
+currentUser.name +
+"\nEmail: " +
+currentUser.email
+);
+
+}
+
+
+/* =====================================================
+FAVORITES
+===================================================== */
+
+function showFavorites(){
+
+if(!currentUser){
+
+openAuth("signin");
+
+return;
+
+}
+
+
+const favorites =
+getFavorites();
+
+
+alert(
+"You have " +
+favorites.length +
+" favorite item(s)."
+);
+
+}
+
+
+/* =====================================================
+WATCHLIST
+===================================================== */
+
+function showWatchlist(){
+
+if(!currentUser){
+
+openAuth("signin");
+
+return;
+
+}
+
+
+const list =
+getWatchlist();
+
+
+alert(
+"You have " +
+list.length +
+" item(s) in your watchlist."
+);
+
+}
+
+
+/* =====================================================
+NEWS FROM ADMIN
+===================================================== */
+
+function loadNews(){
+
+const grid =
+document.getElementById(
+"newsGrid"
+);
+
+
+const posts =
+JSON.parse(
+localStorage.getItem(
+"picscarKilasNews"
+) || "[]"
+);
+
+
+if(!posts.length){
+
+grid.innerHTML = `
+
+<div class="loading">
+
+No news published yet.
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+grid.innerHTML =
+posts
+.slice()
+.reverse()
+.map(post=>`
+
+<article class="news-card">
+
+${
+post.image
+?
+`
+<img
+class="news-image"
+src="${escapeAttribute(post.image)}"
+alt="${escapeHTML(post.title)}"
+>
+`
+:
+""
+}
+
+<div class="news-body">
+
+<div class="news-category">
+
+${escapeHTML(post.category || "News")}
+
+</div>
+
+<div class="news-title">
+
+${escapeHTML(post.title)}
+
+</div>
+
+<div class="news-date">
+
+${post.date ?
+new Date(post.date)
+.toLocaleDateString()
+:
+""}
+
+</div>
+
+<div class="news-content">
+
+${escapeHTML(post.content)}
+
+</div>
+
+</div>
+
+</article>
+
+`)
+.join("");
+
+}
+
+
+/* =====================================================
+ERROR
+===================================================== */
+
+function showTMDBError(){
+
+document
+.getElementById("movieGrid")
+.innerHTML = `
+
+<div class="loading">
+
+Unable to load TMDB content.
+
+<br><br>
+
+Check that your TMDB Read Access Token
+has been pasted correctly.
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+ESCAPE HTML
+===================================================== */
+
+function escapeHTML(value){
+
+return String(value || "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+function escapeAttribute(value){
+
+return String(value || "")
+.replace(/'/g,"&#039;")
+.replace(/"/g,"&quot;");
+
+}
+
+
+/* =====================================================
+CLOSE MODALS BY CLICKING OUTSIDE
+===================================================== */
+
+document
+.getElementById("detailsModal")
+.addEventListener(
+"click",
+function(event){
+
+if(event.target === this){
+
+closeModal("detailsModal");
+
+}
+
+});
+
+
+document
+.getElementById("trailerModal")
+.addEventListener(
+"click",
+function(event){
+
+if(event.target === this){
+
+closeModal("trailerModal");
+
+}
+
+});
+
+
+document
+.getElementById("authOverlay")
+.addEventListener(
+"click",
+function(event){
+
+if(event.target === this){
+
+closeAuth();
+
+}
+
+});
+
+
+/* =====================================================
+START WEBSITE
+===================================================== */
+
+loadCurrentUser();
+
+loadCategory(
+"popular",
+document.querySelector(
+'[data-category="popular"]'
+)
+);
+
+loadSeries();
+
+loadNews();
+
+</script>
+
+</body>
+  </html>
